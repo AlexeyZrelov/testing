@@ -4,14 +4,20 @@ namespace App\Pipes;
 
 class Pipes
 {
-    private array $direction;
+    private array $cell = [];
     private array $board = [];
 
     public function __construct()
     {
-        $this->direction = ['up', 'down', 'left', 'right'];
-        $this->board = range(1, 16);
+
+        foreach (range(1, 16) as $i => $v) {
+            $this->board[$i] = ['up', 'right', 'down', 'left'];
+        }
     }
 
+    public function getBoard(): array
+    {
+        return $this->board;
+    }
 
 }
