@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true">
+<phpunit colors="true" testdox="true">
     <testsuites>
-        <testsuite name="">
+        <testsuite name="MyTest">
             <directory>tests/</directory>
         </testsuite>
     </testsuites>
