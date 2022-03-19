@@ -9,27 +9,28 @@ class WordleTest extends TestCase
     public function testGreen()
     {
         $a = new Wordle(); // "ARISE"
-        $arr = $a->green('E');
-        $this->assertSame('green', $arr, "Should be equals index and value");
+        $arr = $a->getChars();
+        $key = $a->green('S');
+        $this->assertArrayHasKey($key[0], $arr, "Should be equals index");
     }
 
     public function testYellow()
     {
         $a = new Wordle();
-        $arr = $a->yellow('I'); // "ARISE"
-        $this->assertSame('yellow', $arr, "Should be equals value");
+        $char = $a->yellow('S'); // "ARISE"
+        $this->assertTrue($char, "Should be in the word");
     }
 
     public function testGray()
     {
         $a = new Wordle();
-        $arr = $a->gray('B'); // "ARISE"
-        $this->assertSame('gray', $arr, "Not in the array");
+        $char = $a->gray('C'); // "ARISE"
+        $this->assertTrue($char, " Should not be in the word");
     }
 
     public function testWord()
     {
         $a = new Wordle();
-        $this->assertTrue($a->word("ARISE"), "Word should be same as input");
+        $this->assertTrue($a->word("ARISE"), "Should be same as input");
     }
 }

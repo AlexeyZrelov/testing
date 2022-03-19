@@ -15,23 +15,22 @@ class Wordle
         $this->color  = ["green", "yellow", "gray"];
     }
 
-    public function green($input): string
+    public function green($input): array
     {
         $arr = $this->getChars();
-        $arrInput = array_keys($arr, $input);
-        return count($arrInput) != 0 ? $this->color[0] : '';
+        return array_keys($arr, $input);
     }
 
-    public function yellow($input): string
+    public function yellow($input): bool
     {
         $arr = $this->getChars();
-        return in_array($input, $arr) ? $this->color[1] : '';
+        return in_array($input, $arr) ?? false;
     }
 
-    public function gray($input): string
+    public function gray($input): bool
     {
         $arr = $this->getChars();
-        return !in_array($input, $arr) ? $this->color[2] : '';
+        return !in_array($input, $arr);
     }
 
     public function word($input): bool
